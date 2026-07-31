@@ -21,3 +21,29 @@
  * - Final payment
  * - Whether the guest is eligible for free breakfast
  */
+
+// Primitive types
+const roomPricePerNight = 650000;
+const nightsStayed = 4;
+const serviceCharge = 120000;
+const taxRate = 11 / 100;
+const isVIP = true;
+
+// Calculate
+const roomSubtotal = roomPricePerNight * nightsStayed;
+const discount = isVIP ? roomSubtotal * 0.12 : 0;
+const roomAfterDiscount = roomSubtotal - discount;
+const tax = roomAfterDiscount * taxRate;
+const finalPayment = roomAfterDiscount + tax + serviceCharge;
+const freeBreakfast = nightsStayed >= 3 || isVIP;
+
+// Show receipt
+console.log("=== Hotel Payment ===");
+console.log({
+    roomSubtotal,
+    discount,
+    tax,
+    serviceCharge,
+    finalPayment,
+    freeBreakfast: freeBreakfast ? "Yes" : "No"
+});

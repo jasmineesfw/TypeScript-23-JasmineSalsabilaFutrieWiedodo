@@ -13,3 +13,32 @@
  * - Discount amount
  * - Final payment
  */
+
+// Primitive types
+const chargePerHour: number = 8000;
+const hours: number = 7;
+const minutes: number = 35;
+const discountRate: number = 0.15;
+
+// Calculate playing time
+const totalMinutes: number = (hours * 60) + minutes;
+const remainingMinutes: number = totalMinutes % 60;
+
+// Calculate billed hours (every started hour)
+const billedHours: number = remainingMinutes > 0 ? hours + 1 : hours;
+
+// Calculate payment
+const totalPayment: number = billedHours * chargePerHour;
+const discount: number = billedHours > 5 ? totalPayment * discountRate : 0;
+const finalPayment: number = totalPayment - discount;
+
+// Show receipt
+console.log("=== Internet Café Receipt ===");
+console.log({
+    totalMinutes,
+    remainingMinutes,
+    billedHours,
+    totalPayment,
+    discount,
+    finalPayment
+});

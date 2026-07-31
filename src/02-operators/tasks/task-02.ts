@@ -26,5 +26,5 @@ const isEligible: boolean = finalScore >= 75 && attendance >= 90 && tuitionPaid;
 // Show report card
 console.log("=== Student Report Card ===");
 console.log({
-    isEligible
+    isEligible: isEligible ? "Yes" : "No"
 });

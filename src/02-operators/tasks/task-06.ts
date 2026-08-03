@@ -29,7 +29,7 @@ const billedHours: number = remainingMinutes > 0 ? hours + 1 : hours;
 
 // Calculate payment
 const totalPayment: number = billedHours * chargePerHour;
-const discount: number = billedHours > 5 ? totalPayment * discountRate : 0;
+const discount: number = totalMinutes > 300 ? totalPayment * discountRate : 0;
 const finalPayment: number = totalPayment - discount;
 
 // Show receipt
